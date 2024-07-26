@@ -19,9 +19,9 @@ public class Mario extends JFrame implements Game {
     @Override
     public void ui() {
         marioE = new ElementHero();
-        marioE.setBounds(10, 10, marioE.getWidth(), marioE.getHeight());
+        marioE.setBounds(10, 10,40, 44);
         add(marioE);
         marioE.requestFocusInWindow();
     }
 
-}
+}//50 44

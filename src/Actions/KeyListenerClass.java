@@ -21,6 +21,7 @@ public class KeyListenerClass implements java.awt.event.KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {}
 
+
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
@@ -40,11 +41,10 @@ public class KeyListenerClass implements java.awt.event.KeyListener {
                 }
                 break;
             case KeyEvent.VK_W:
+                JumpAnimation jumpAnimation = new JumpAnimation(marioE);
+                jumpAnimation.start();
                 Jump jump = new Jump(marioE);
                 jump.start();
-                JumpAnimation  jumpAnimation = new JumpAnimation(marioE,currentX, w);
-                jumpAnimation.start();
-
                 break;
             case KeyEvent.VK_S:
                 marioE.move(marioE.getX(), marioE.getY() + 10);

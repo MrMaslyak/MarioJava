@@ -20,12 +20,16 @@ public class Flip {
     }
 
     public BufferedImage flipImage(BufferedImage image) {
-        AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
-        tx.translate(-image.getWidth(), 0);
-        BufferedImage flippedImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        int width = image.getWidth();
+        int height = image.getHeight();
+        BufferedImage flippedImage = new BufferedImage(width, height, image.getType());
         Graphics2D g2d = flippedImage.createGraphics();
-        g2d.drawImage(image, tx, null);
+        AffineTransform transform = AffineTransform.getScaleInstance(-1, 1);
+        transform.translate(-width, 0);
+        g2d.drawImage(image, transform, null);
         g2d.dispose();
         return flippedImage;
     }
+
+
 }
