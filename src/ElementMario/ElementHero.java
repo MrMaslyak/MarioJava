@@ -14,12 +14,13 @@ import MovementMario.Move;
 public class ElementHero extends JLabel implements isFlip {
     private int currentX = 0;
     private int currentY = 0;
-    private int changeX = 0;
+    private int changeX = 15;
+    private int changeY = 550; // Default value
     private BufferedImage imageIcon = null;
     private BufferedImage flippedImageIcon = null;
     private boolean isFlipped = false;
     private int w = 44, h = 80;
-    private KeyListenerClass keyListener = new KeyListenerClass(this, currentX, w);
+    private KeyListenerClass keyListener = new KeyListenerClass(this);
     private MoveHero moveHero = new Move(this);
 
     public ElementHero() {
@@ -40,6 +41,7 @@ public class ElementHero extends JLabel implements isFlip {
             e.printStackTrace();
             throw new RuntimeException("Ошибка загрузки изображения: " + e.getMessage());
         }
+
     }
 
     @Override
@@ -48,20 +50,21 @@ public class ElementHero extends JLabel implements isFlip {
         BufferedImage imageToDraw = isFlipped ? flippedImageIcon : imageIcon;
 
         int imageWidth = imageToDraw.getWidth();
-        changeX = 15;
-
         int xDraw = isFlipped ? (getWidth() - currentX - imageWidth) : currentX;
         int yDraw = currentY;
         if (isFlipped) {
-            changeX = -15;
+            xDraw = getWidth() - imageWidth - currentX + 30;
+        } else {
+            xDraw = currentX;
         }
 
-        g.drawImage(imageToDraw, xDraw- changeX, yDraw - 550, this);
-
+        g.drawImage(imageToDraw, xDraw - changeX, yDraw - changeY, this);
     }
 
-
-
+    public void setChangeY(int changeY) {
+        this.changeY = changeY;
+        repaint();
+    }
 
     public void flip() {
         isFlipped = !isFlipped;
@@ -76,11 +79,7 @@ public class ElementHero extends JLabel implements isFlip {
         this.currentX = currentX;
     }
 
-    public int getCurrentY() {
-        return currentY;
-    }
-
-    public void setCurrentY(int currentY) {
-        this.currentY = currentY;
+    public void setChangeX(int changeX) {
+        this.changeX = changeX;
     }
 }

@@ -2,13 +2,14 @@ package Animation;
 
 import ElementMario.ElementHero;
 
-public class JumpAnimation extends Thread {
+public class RunAnimation extends Thread {
+
     private ElementHero marioE;
     private int widthHeroWithHero = 45;
-    private int changeY = 550;
-    private int changeX = 20;
+    private int changeY = 340;
+    private int changeX = 35;
 
-    public JumpAnimation(ElementHero marioE) {
+    public RunAnimation(ElementHero marioE) {
         this.marioE = marioE;
     }
 
@@ -16,20 +17,19 @@ public class JumpAnimation extends Thread {
     public void run() {
         marioE.setChangeY(changeY);
         marioE.setChangeX(changeX);
-
         int count = 0;
         while (count <= 12) {
             count++;
-            if (count == 12){
+            if (count == 12) {
                 marioE.setCurrentX(0);
                 break;
-            }else {
+            } else {
                 marioE.setCurrentX(marioE.getCurrentX() - widthHeroWithHero);
             }
             marioE.repaint();
 
             try {
-                sleep(1000 / 20);
+                sleep(1000 / 25);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
