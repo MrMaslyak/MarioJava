@@ -12,8 +12,9 @@ public class Mario extends JFrame implements Game {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setResizable(false);
-        setVisible(true);
         ui();
+        setVisible(true);
+
     }
 
     @Override
@@ -22,6 +23,8 @@ public class Mario extends JFrame implements Game {
         marioE.setBounds(100, 400,40, 44);
         add(marioE);
         marioE.requestFocusInWindow();
+        marioE.repaint();
+        revalidate();
     }
 
 }

@@ -19,7 +19,7 @@ public class ElementHero extends JLabel implements isFlip {
     private BufferedImage imageIcon = null;
     private BufferedImage flippedImageIcon = null;
     private boolean isFlipped = false;
-    private int w = 44, h = 80;
+    private int w = 40, h = 44;
     private KeyListenerClass keyListener = new KeyListenerClass(this);
     private MoveHero moveHero = new Move(this);
 
@@ -28,7 +28,7 @@ public class ElementHero extends JLabel implements isFlip {
         setFocusable(true);
         addKeyListener(keyListener);
         moveHero.move(currentX, 0);
-
+        requestFocusInWindow();
         try {
             imageIcon = ImageIO.read(new File("src/img/marioOr.png"));
             if (imageIcon == null) {
