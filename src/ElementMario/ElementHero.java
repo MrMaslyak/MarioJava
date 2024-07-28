@@ -15,7 +15,7 @@ public class ElementHero extends JLabel implements isFlip {
     private int currentX = 0;
     private int currentY = 0;
     private int changeX = 15;
-    private int changeY = 550; // Default value
+    private int changeY = 550;
     private BufferedImage imageIcon = null;
     private BufferedImage flippedImageIcon = null;
     private boolean isFlipped = false;

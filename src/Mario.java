@@ -25,6 +25,6 @@ public class Mario extends JFrame implements Game {
         marioE.requestFocusInWindow();
         marioE.repaint();
         revalidate();
-    }
+    }//40 44
 
 }

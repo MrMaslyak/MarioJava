@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import ElementMario.*;
 import MovementMario.*;
 import Animation.*;
+import Animation.ВackflipAnimation;
 
 public class KeyListenerClass implements java.awt.event.KeyListener {
 
@@ -95,10 +96,21 @@ public class KeyListenerClass implements java.awt.event.KeyListener {
                 break;
 
             case KeyEvent.VK_S:
-                SeatAnimation  seatAnimation = new SeatAnimation(marioE);
+                SeatAnimation seatAnimation = new SeatAnimation(marioE);
                 seatAnimation.start();
                 break;
-
+            case KeyEvent.VK_E:
+                BackFlipRight backFlipRight = new BackFlipRight(marioE);
+                backFlipRight.start();
+                ВackflipAnimation backFlipAnimationRight = new ВackflipAnimation(marioE);
+                backFlipAnimationRight.start();
+                break;
+            case KeyEvent.VK_Q:
+                BackFlipLeft backFlipLeft = new BackFlipLeft(marioE);
+                backFlipLeft.start();
+                ВackflipAnimation backFlipAnimationLeft = new ВackflipAnimation(marioE);
+                backFlipAnimationLeft.start();
+                break;
         }
     }
 
